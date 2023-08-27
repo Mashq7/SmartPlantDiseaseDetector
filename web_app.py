@@ -9,10 +9,16 @@ app.config['SECRET_KEY'] = 'dc521c243424f382543b5bd4aa769b98'
 @app.route("/home")
 def home():
 	return render_template('home.html')
-
-@app.route("/login")
+	
+@app.route("/login", methods=['GET', 'POST'])
 def login():
 	form = LoginForm()
+	if form.validate_on_submit():
+		if form.email.data == 'admain@spdd.net' and form.password.data == 'password':
+			flash('You have been logged in!', 'success')
+			return redirect(url_for('home'))
+		else:
+			flash('Login Unsuccessful. Please check username and password', 'danger')
 	return render_template('login.html', title='Login', form=form)
 
 @app.route("/register", methods=['GET', 'POST'])
