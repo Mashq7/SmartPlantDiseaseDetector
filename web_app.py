@@ -4,6 +4,7 @@ from forms import RegistrationForm, LoginForm
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'dc521c243424f382543b5bd4aa769b98'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 
 @app.route("/")
 @app.route("/home")
