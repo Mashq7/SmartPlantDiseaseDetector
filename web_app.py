@@ -1,9 +1,17 @@
 from flask import Flask, render_template, flash, redirect, url_for
 from forms import RegistrationForm, LoginForm
+from models import spdd_db, User, Plant
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'dc521c243424f382543b5bd4aa769b98'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+spdd_db.init_app(app)
+
+
+@app.route("/create")
+def create():
+	spdd_db.create_all()  
+	return "Tables created!"
 
 @app.route("/")
 @app.route("/home")
