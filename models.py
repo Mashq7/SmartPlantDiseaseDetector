@@ -1,8 +1,9 @@
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 
 spdd_db = SQLAlchemy()
-
+spdd_ma = Marshmallow()
 
 class User(spdd_db.Model):
 	id = spdd_db.Column(spdd_db.Integer, primary_key=True)
@@ -27,3 +28,16 @@ class Plant(spdd_db.Model):
 
 	def __repr__(self):
 		return f"Plant('{self.title}', '{self.accuracy}', '{self.image_file}', '{self.desc}')"
+
+class UserSchema(spdd_ma.SQLAlchemyAutoSchema):
+	class Meta:
+		model_ = User
+		include_relationships = True
+		load_instance = True 
+
+
+class PlantSchema(spdd_ma.SQLAlchemyAutoSchema):
+	class Meta:
+		model_ = Plant
+		include_fk = True
+		load_instance = True
