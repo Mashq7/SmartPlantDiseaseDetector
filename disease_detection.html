@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Plant Leaf</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/project.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
+        background-image: linear-gradient(180deg,#71c2a0 10%,#1cc88a 100%);
+        background-size: cover; !important" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 500 512">
+                        <path
+                            d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z" />
+                    </svg>
+                </div>
+                <div class="sidebar-brand-text mx-3">Plant Leaf</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Home -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <span style="font-size: 1.1rem;">Home</span></a>
+            </li>
+            <!-- Nav Item - Disease Detection -->
+            <li class="nav-item active">
+                <a class="nav-link" href="Disease_Detection.html">
+                    <span style="font-size: 1.1rem;">Disease Detection</span></a>
+            </li>
+            <!-- Nav Item - Team Member -->
+            <li class="nav-item active">
+                <a class="nav-link" href="team_member.html">
+                    <span style="font-size: 1.1rem;">Team Member</span></a>
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+                    style="display: flex; justify-content: center; align-items: center;">
+                    <h1 class="h3 mb-0 text-gray-800">Plant Leaf Disease Detection</h1>
+                </nav>
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Disease Detection</h1>
+                    </div>
+                    <!-- Upload Photo and Description Sections -->
+                    <div class="row">
+                        <!-- Upload Photo Section -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-header py-3">
+                                    <h5 class="m-0 font-weight-bold text-primary">Upload and Preview Image</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Your photo upload form or button -->
+                                    <input type="file" id="photoInput" accept="image/*" class="mb-4" />
+                                    
+                                    <button id="uploadButton" class="btn btn-primary">Upload Image</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Display Uploaded Photo Section -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-header py-3">
+                                    <h5 class="m-0 font-weight-bold text-primary">Uploaded Image</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Display uploaded photo here -->
+                                    <img id="uploadedPhoto" src="#" alt="Uploaded Photo"
+                                        style="max-width: 100%; height: auto;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Description Section -->
+                        <div class="col-lg-12 mb-4">
+                            <div class="card">
+                                <div class="card-header py-3">
+                                    <h5 class="m-0 font-weight-bold text-primary">Description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <!-- Display description text from backend -->
+                                    <p>Here goes the description from the backend...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript code for image upload and display -->
+                        <script>
+                    // Get references to the input and image elements
+                    const photoInput = document.getElementById('photoInput');
+                    const uploadedPhoto = document.getElementById('uploadedPhoto');
+                    const uploadButton = document.getElementById('uploadButton');
+
+                    // Add an event listener to the "Upload and Preview Image" button
+                    uploadButton.addEventListener('click', function() {
+                        console.log('Upload button clicked');
+                        const file = photoInput.files[0];
+                        
+                        if (file) {
+                            // Read the selected file as a data URL
+                            const reader = new FileReader();
+                            reader.onload = function(event) {
+                                uploadedPhoto.src = event.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                </script>
+
+
+
+                   
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="https://kit.fontawesome.com/7ebeca01df.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
