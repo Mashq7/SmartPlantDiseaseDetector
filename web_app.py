@@ -2,7 +2,6 @@ from flask import Flask, render_template, flash, redirect, url_for, jsonify
 from forms import RegistrationForm, LoginForm
 from models import spdd_db, User, Plant
 from models import spdd_ma, UserSchema, PlantSchema
-
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'dc521c243424f382543b5bd4aa769b98'
@@ -17,23 +16,6 @@ def create():
 
 @app.route("/create_user")
 def create_user():
-	# data = kwargs
-	# username = ''
-	# email = ''
-	# passwd = ''
-	# image_file = ''
-	# plants = []
-
-	# # input valdations
-	# if data[username]:
-	# 	username = data[username]
-	# if data[email]:
-	# 	email = data[email]
-	# if data[password]:
-	# 	passwd = data[password]
-	# if data[image_file]:
-	# 	image_file = data[image_file]
-
 	user = User(username='Adam', email='add_203@gmail.com', password='passwor2', image_file=None)
 	spdd_db.session.add(user)
 	spdd_db.session.commit()
