@@ -52,7 +52,7 @@
             </li>
             <!-- Nav Item - Disease Detection -->
             <li class="nav-item">
-                <a id="diseaseLink" class="nav-link" href="disease_detection.html">
+                <a id="diseaseLink" class="nav-link" href="disease_detection">
                     <span style="font-size: 1.1rem;">Disease Detection</span></a>
             </li>
             <!-- Nav Item - Team Member -->
@@ -109,11 +109,18 @@
                                     <h5 class="m-0 font-weight-bold text-primary" style="color: #3bc683 !important;">Upload and Preview Image</h5>
                                 </div>
                                 <div class="card-body">
+                                    <!-- <form method="POST" enctype="multipart/form-data"> -->
                                     <!-- Your photo upload form or button -->
-                                    <input type="file" id="photoInput" accept="image/*" class="mb-4" />
+                                    <input type="file" name="image" id="photoInput" accept="image/*" class="mb-4" />
                                     
-                                    <button id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary">Upload Image</button>
+                                    <input type=submit id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary">Upload Image</button>
+                                    <div><h3 style="color:rgb(0, 0, 0)">hiiiiiiiiiii {{name}} </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)">{{plant}} </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)">{{healthy}} </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)">{{disease}} </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)">{{plant_probability}} </h3></div>
                                     
+                                    <!-- </form> -->
                                 </div>
                             </div>
                         </div>
@@ -221,6 +228,30 @@
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>
         <script src="https://kit.fontawesome.com/7ebeca01df.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#uploadButton').click(function() {
+                    var formData = new FormData();
+                    formData.append('image', $('#photoInput')[0].files[0]);
+                    $.ajax({
+                        url: '/disease_detection',  // Replace with the appropriate URL endpoint
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            console.log('Photo uploaded successfully response: '+response);
+                            $('#message').text('Photo uploaded successfully.');
+                        },
+                        error: function(error) {
+                            $('#message').text('Error uploading photo.');
+                        }
+                    });
+                });
+            });
+        </script>
+                    
 </body>
 
 </html>
