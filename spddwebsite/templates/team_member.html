@@ -26,6 +26,18 @@
   .ul-nav{
       background-image: url("./static/img/background.jpg") !important;
   }
+
+  
+  .member-team {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member-team:hover{
+    transform: scale(1.1);
+    font-weight: bold;
+}
 </style>
 <body id="page-top">
 
@@ -38,8 +50,11 @@
         background-size: cover;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">Plant Leaf</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+              <div class="sidebar-brand-icon rotate-n-15">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M512 32c0 113.6-84.6 207.5-194.2 222c-7.1-53.4-30.6-101.6-65.3-139.3C290.8 46.3 364 0 448 0h32c17.7 0 32 14.3 32 32zM0 96C0 78.3 14.3 64 32 64H64c123.7 0 224 100.3 224 224v32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320C100.3 320 0 219.7 0 96z"/></svg>
+                </div>
+                <div class="sidebar-brand-text mx-3">Plantico</div>
             </a>
 
             <!-- Divider -->
@@ -47,17 +62,17 @@
 
             <!-- Nav Item - Home -->
             <li class="nav-item">
-              <a id="homeLink" class="nav-link" href="index.html">
+              <a id="homeLink" class="nav-link" href="index">
                   <span style="font-size: 1.1rem;">Home</span></a>
           </li>
           <!-- Nav Item - Disease Detection -->
           <li class="nav-item">
-              <a id="diseaseLink" class="nav-link" href="disease_detection.html">
+              <a id="diseaseLink" class="nav-link" href="disease_detection">
                   <span style="font-size: 1.1rem;">Disease Detection</span></a>
           </li>
           <!-- Nav Item - Team Member -->
           <li class="nav-item">
-              <a id="teamLink" class="nav-link" href="team_member.html">
+              <a id="teamLink" class="nav-link" href="team_member">
                   <span style="font-size: 1.1rem;">Team Member</span></a>
           </li>
           <!-- Nav Item - Resources -->
@@ -73,7 +88,7 @@
 
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-none d-md-inline button-space">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
@@ -105,7 +120,7 @@
       <section class="team-section py-5">
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col-12 col-md-6 col-lg-4">
+              <div class="col-12 col-md-6 col-lg-4 member-team">
                 <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
                   <div class="card-body p-4">
                     <div class="member-profile position-absolute w-100 text-center">
@@ -129,7 +144,7 @@
                   </div><!--//card-footer-->
                 </div><!--//card-->
               </div><!--//col-->
-              <div class="col-12 col-md-6 col-lg-4">
+              <div class="col-12 col-md-6 col-lg-4 member-team">
                 <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
                   <div class="card-body p-4">
                     <div class="member-profile position-absolute w-100 text-center">
@@ -157,7 +172,7 @@
             </div><!--//card-->
           </div><!--//col-->
           
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="col-12 col-md-6 col-lg-4 member-team">
             <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
               <div class="card-body p-4">
                 <div class="member-profile position-absolute w-100 text-center">
@@ -183,7 +198,7 @@
             </div><!--//card-->
           </div><!--//col-->
           
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="col-12 col-md-6 col-lg-4 member-team">
             <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
               <div class="card-body p-4">
                 <div class="member-profile position-absolute w-100 text-center">
@@ -215,7 +230,7 @@
               </div><!--//card-footer-->
             </div><!--//card-->
           </div><!--//col-->
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="col-12 col-md-6 col-lg-4 member-team">
             <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
               <div class="card-body p-4">
                 <div class="member-profile position-absolute w-100 text-center">
@@ -235,7 +250,7 @@
               </div><!--//card-footer-->
             </div><!--//card-->
           </div><!--//col-->
-          <div class="col-12 col-md-6 col-lg-4">
+          <div class="col-12 col-md-6 col-lg-4 member-team">
             <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
               <div class="card-body p-4">
                 <div class="member-profile position-absolute w-100 text-center">
@@ -287,6 +302,7 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="static/js/sb-admin-2.js"></script>
     <script src="https://kit.fontawesome.com/7ebeca01df.js" crossorigin="anonymous"></script>
 </body>
 

@@ -129,7 +129,7 @@ def create():
 	return "Tables created!"
 
 @app.route("/")
-@app.route("/home")
+@app.route("/index")
 def home():
 	return render_template('index.html')
 	
@@ -149,12 +149,21 @@ def project():
 		print("No file uploaded")
 		return render_template('disease_detection.html')
 
+@app.route("/team_member")
+def about():
+	return render_template('team_member.html')
+
+
+@app.route("/datarespons", methods=['GET','POST'])
+def response():
+	# Load the model state dict
+	model_state_dict = torch.load("spddwebsite\model.pth",map_location=torch.device('cpu') )
+	model = ResNetForImageClassification.from_pretrained('microsoft/resnet-152')
+	# Load the state dict into the new model
+	model.load_state_dict(model_state_dict)
+	
 	image_file = request.files['image']
 
-	if image_file.filename == '':
-		print("No selected file")
-		# return render_template('disease_detection.html')
-	
 	image =Image.open(io.BytesIO(image_file.read())).convert("RGB")
 
 	# Define a transform to resize the image to 64x64
@@ -183,21 +192,38 @@ def project():
 	print("Is Healthy:", healthy)
 	print("Disease Name:", disease)
 	print("Probablity of the prediction:",plant_probability*100,"%")
+	print("Probablity of the prediction:",plant_probability*100,"%")
+	response={
+        "name": name,
+        "plant": plant,
+        "healthy": healthy,
+        "disease": disease,
+        "plant_probability": plant_probability*100
+    }
+	return  jsonify(response)
+ 
+	 
+    
+    
+    
+ 
+    
+    
+ 
+ 
+ 
+   
 	
-	return render_template('disease_detection.html',name=name,plant=plant,healthy=healthy,disease=disease,plant_probability=plant_probability)
+	
+
+
+
+
+
+# return render_template('disease_detection.html',name=name,plant=plant,healthy=healthy,disease=disease,plant_probability=plant_probability)
 	# return render_template('disease_detection.html',name)
 	# return render_template('disease_detection.html')
 	# return name
-
-
-@app.route("/team_member")
-def about():
-	return render_template('team_member.html')
-
-
-
-
-
 # @app.route("/create_user")
 # def create_user():
 # 	user = User(username='Adam', email='add_203@gmail.com', password='passwor2', image_file=None)

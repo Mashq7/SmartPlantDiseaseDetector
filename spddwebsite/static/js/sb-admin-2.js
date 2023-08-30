@@ -54,3 +54,14 @@
   });
 
 })(jQuery); // End of use strict
+
+
+window.addEventListener('scroll', function() {
+  console.log(window.scrollY);
+  var sidebar = document.querySelector('.ul-nav');
+  if (window.scrollY > 100) {
+      sidebar.classList.add('sticky');
+  } else {
+      sidebar.classList.remove('sticky');
+  }
+});

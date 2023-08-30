@@ -25,6 +25,16 @@
         .ul-nav{
             background-image: url("./static/img/background.jpg") !important;
         }
+  
+        .custom-card {
+            background-color: #f5f5f5;
+            padding: 17px;
+        }
+
+        .custom-card h3 {
+            margin: 10px 0;
+            font-size: 20;
+        }
     </style>
 </head>
 
@@ -39,15 +49,16 @@
         background-size: cover; !important" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">Plant Leaf</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M512 32c0 113.6-84.6 207.5-194.2 222c-7.1-53.4-30.6-101.6-65.3-139.3C290.8 46.3 364 0 448 0h32c17.7 0 32 14.3 32 32zM0 96C0 78.3 14.3 64 32 64H64c123.7 0 224 100.3 224 224v32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320C100.3 320 0 219.7 0 96z"/></svg>
+                <div class="sidebar-brand-text mx-3">Plantico</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Home -->
             <li class="nav-item">
-                <a id="homeLink" class="nav-link" href="index.html">
+                <a id="homeLink" class="nav-link" href="index">
                     <span style="font-size: 1.1rem;">Home</span></a>
             </li>
             <!-- Nav Item - Disease Detection -->
@@ -57,7 +68,7 @@
             </li>
             <!-- Nav Item - Team Member -->
             <li class="nav-item">
-                <a id="teamLink" class="nav-link" href="team_member.html">
+                <a id="teamLink" class="nav-link" href="team_member">
                     <span style="font-size: 1.1rem;">Team Member</span></a>
             </li>
             <!-- Nav Item - Resources -->
@@ -72,7 +83,7 @@
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-none d-md-inline button-space">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
@@ -113,42 +124,46 @@
                                     <!-- Your photo upload form or button -->
                                     <input type="file" name="image" id="photoInput" accept="image/*" class="mb-4" />
                                     
-                                    <input type=submit id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary">Upload Image</button>
-                                    <div><h3 style="color:rgb(0, 0, 0)">hiiiiiiiiiii {{name}} </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)">{{plant}} </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)">{{healthy}} </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)">{{disease}} </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)">{{plant_probability}} </h3></div>
+                                    <input type=submit id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary"></button>
+                                    
                                     
                                     <!-- </form> -->
                                 </div>
                             </div>
                         </div>
+                        </div>
 
                     <!-- Display Uploaded Photo Section -->
-                    <div class="row mb-4 uploaded-image-section" style="display: none;">
-                        <div class="col-lg-12">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary">Uploaded Image</h5>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Display uploaded photo here -->
-                                    <img id="uploadedPhoto" src="#" alt="Uploaded Photo"
-                                        style="max-width: 100%; height: auto;">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                 
                         <!-- Description Section -->
-                        <div class="col-lg-12 mb-4 description-section" style="display: none;" >
+                    <div class="row">
+                        <div class="col-lg-6 mb-4 uploaded-image-section" style="display: none;">
+                            
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-header py-3">
+                                        <h5 class="m-0 font-weight-bold text-primary">Uploaded Image</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- Display uploaded photo here -->
+                                        <img id="uploadedPhoto" src="#" alt="Uploaded Photo"
+                                            style="max-width: 100%; height: auto;">
+                                    </div>
+                                </div>
+                            
+                        </div>
+                        <div class="col-lg-6 mb-4 description-section" style="display: none;" >
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-header py-3">
                                     <h5 class="m-0 font-weight-bold text-primary">Description</h5>
+                                    
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body custom-card">
                                     <!-- Display description text from backend -->
-                                    <p>Here goes the description from the backend...</p>
+                                    <div><h3 style="color:rgb(0, 0, 0)"id="name_planet">  </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)"id="plant"> </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)"id="healthy"> </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)"id="name_disease"> </h3></div>
+                                    <div><h3 style="color:rgb(0, 0, 0)"id="plant_probability"> </h3></div>
                                 </div>
                             </div>
                         </div>
@@ -235,14 +250,18 @@
                     var formData = new FormData();
                     formData.append('image', $('#photoInput')[0].files[0]);
                     $.ajax({
-                        url: '/disease_detection',  // Replace with the appropriate URL endpoint
+                        url: '/datarespons',  
                         type: 'POST',
                         data: formData,
                         processData: false,
                         contentType: false,
                         success: function(response) {
-                            console.log('Photo uploaded successfully response: '+response);
-                            $('#message').text('Photo uploaded successfully.');
+                            
+                            $('#name_planet').text( 'Class Name: ' + response.name);
+                            $('#plant').text('Plant Name:' + response.plant);
+                            $('#healthy').text('Is Healthy: ' + response.healthy);
+                            $('#name_disease').text('Disease Name: ' + response.disease);
+                            $('#plant_probability').text('Probablity of the prediction: ' + response.plant_probability + '%');
                         },
                         error: function(error) {
                             $('#message').text('Error uploading photo.');
