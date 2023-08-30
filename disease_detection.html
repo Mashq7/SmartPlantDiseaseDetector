@@ -21,6 +21,11 @@
     <!-- Custom styles for this template-->
     <link href="css/project.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .ul-nav{
+            background-image: url("./img/background.jpg") !important;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -29,38 +34,41 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
-        background-image: linear-gradient(180deg,#71c2a0 10%,#1cc88a 100%);
+        <ul class="ul-nav navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
+        background-image: linear-gradient(180deg,#8ac271 10%,#1cc88a 100%);
         background-size: cover; !important" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 500 512">
-                        <path
-                            d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z" />
-                    </svg>
-                </div>
                 <div class="sidebar-brand-text mx-3">Plant Leaf</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Home -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item">
+                <a id="homeLink" class="nav-link" href="index.html">
                     <span style="font-size: 1.1rem;">Home</span></a>
             </li>
             <!-- Nav Item - Disease Detection -->
-            <li class="nav-item active">
-                <a class="nav-link" href="Disease_Detection.html">
+            <li class="nav-item">
+                <a id="diseaseLink" class="nav-link" href="disease_detection.html">
                     <span style="font-size: 1.1rem;">Disease Detection</span></a>
             </li>
             <!-- Nav Item - Team Member -->
-            <li class="nav-item active">
-                <a class="nav-link" href="team_member.html">
+            <li class="nav-item">
+                <a id="teamLink" class="nav-link" href="team_member.html">
                     <span style="font-size: 1.1rem;">Team Member</span></a>
+            </li>
+            <!-- Nav Item - Resources -->
+            <li class="nav-item">
+                <a id="resourcesLink" class="nav-link" href="resources.html">
+                    <span style="font-size: 1.1rem;">Resources</span></a>
+            </li>
+            <!-- Nav Item - Contact Us -->
+            <li class="nav-item">
+                <a id="contactLink" class="nav-link" href="contact_us.html">
+                    <span style="font-size: 1.1rem;">Contact Us</span></a>
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -96,23 +104,24 @@
                     <div class="row">
                         <!-- Upload Photo Section -->
                         <div class="col-lg-6 mb-4">
-                            <div class="card">
+                            <div class="card border-left-success shadow h-80 py-2">
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary">Upload and Preview Image</h5>
+                                    <h5 class="m-0 font-weight-bold text-primary" style="color: #3bc683 !important;">Upload and Preview Image</h5>
                                 </div>
                                 <div class="card-body">
                                     <!-- Your photo upload form or button -->
                                     <input type="file" id="photoInput" accept="image/*" class="mb-4" />
                                     
-                                    <button id="uploadButton" class="btn btn-primary">Upload Image</button>
+                                    <button id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary">Upload Image</button>
                                     
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Display Uploaded Photo Section -->
-                        <div class="col-lg-6 mb-4">
-                            <div class="card">
+                    <!-- Display Uploaded Photo Section -->
+                    <div class="row mb-4 uploaded-image-section" style="display: none;">
+                        <div class="col-lg-12">
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-header py-3">
                                     <h5 class="m-0 font-weight-bold text-primary">Uploaded Image</h5>
                                 </div>
@@ -123,10 +132,10 @@
                                 </div>
                             </div>
                         </div>
-
+                    </div>
                         <!-- Description Section -->
-                        <div class="col-lg-12 mb-4">
-                            <div class="card">
+                        <div class="col-lg-12 mb-4 description-section" style="display: none;" >
+                            <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-header py-3">
                                     <h5 class="m-0 font-weight-bold text-primary">Description</h5>
                                 </div>
@@ -143,6 +152,8 @@
                     const photoInput = document.getElementById('photoInput');
                     const uploadedPhoto = document.getElementById('uploadedPhoto');
                     const uploadButton = document.getElementById('uploadButton');
+                    const uploadedImageSection = document.querySelector('.uploaded-image-section');
+                    const descriptionSection = document.querySelector('.description-section');
 
                     // Add an event listener to the "Upload and Preview Image" button
                     uploadButton.addEventListener('click', function() {
@@ -154,15 +165,29 @@
                             const reader = new FileReader();
                             reader.onload = function(event) {
                                 uploadedPhoto.src = event.target.result;
+                                // Show the uploaded image section and description section
+                                uploadedImageSection.style.display = 'block';
+                                descriptionSection.style.display = 'block';
                             };
                             reader.readAsDataURL(file);
                         }
                     });
+                    // Get all navigation links
+                    const navLinks = document.querySelectorAll('.nav-link');
+
+                    // Add click event listeners to each link
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            // Remove "active" class from all links
+                            navLinks.forEach(link => link.classList.remove('active-link'));
+
+                            // Add "active" class to the clicked link
+                            link.classList.add('active-link');
+                        });
+                    });
+
                 </script>
 
-
-
-                   
                     </div>
                     <!-- /.container-fluid -->
 

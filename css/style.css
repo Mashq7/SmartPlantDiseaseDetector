@@ -65,3 +65,35 @@
 .member-name {
     margin-top: 6px;
 }
+
+/* Apply the animation to the upload button */
+#uploadButton {
+    animation: buttonScale 1s infinite;
+}
+/* Active link style */
+.active-link {
+    background-color: #c5da60; /* Change to your desired active background color */
+    color: white !important; /* Important to override default link color */
+}
+
+/* Hover effect */
+.nav-link:hover {
+    background-color: #c5da60; /* Change to your desired hover background color */
+    color: white !important; /* Important to override default link color */
+}
+
+    /* Add this to your existing CSS styles */
+    @keyframes buttonScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.ul-nav{
+    background-image: url("./img/background.jpg") !important;}
