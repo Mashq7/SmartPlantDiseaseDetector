@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="css/style.css" rel="stylesheet">
 
     <title>Plant Leaf</title>
 
@@ -19,7 +20,26 @@
 
     <!-- Custom styles for this template-->
     <link href="css/project.min.css" rel="stylesheet">
+    <script>
+    const navLinks = document.querySelectorAll('.nav-link');
 
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+            });
+
+            link.classList.add('active-link');
+        });
+    });
+</script>
+<style>
+    .ul-nav{
+        background-image: url("./img/background.jpg") !important;
+    }
+</style>
 </head>
 
 <body id="page-top">
@@ -28,39 +48,43 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
-        background-image: linear-gradient(180deg,#71c2a0 10%,#1cc88a 100%);
+        <ul class="ul-nav navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
         background-size: cover; !important" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 500 512">
-                        <path
-                            d="M272 96c-78.6 0-145.1 51.5-167.7 122.5c33.6-17 71.5-26.5 111.7-26.5h88c8.8 0 16 7.2 16 16s-7.2 16-16 16H288 216s0 0 0 0c-16.6 0-32.7 1.9-48.2 5.4c-25.9 5.9-50 16.4-71.4 30.7c0 0 0 0 0 0C38.3 298.8 0 364.9 0 440v16c0 13.3 10.7 24 24 24s24-10.7 24-24V440c0-48.7 20.7-92.5 53.8-123.2C121.6 392.3 190.3 448 272 448l1 0c132.1-.7 239-130.9 239-291.4c0-42.6-7.5-83.1-21.1-119.6c-2.6-6.9-12.7-6.6-16.2-.1C455.9 72.1 418.7 96 376 96L272 96z" />
-                    </svg>
-                </div>
                 <div class="sidebar-brand-text mx-3">Plant Leaf</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Home -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <span style="font-size: 1.1rem;">Home</span></a>
-            </li>
-            <!-- Nav Item - Disease Detection Image -->
-            <li class="nav-item active">
-                <a class="nav-link" href="Disease_Detection.html">
-                    <span style="font-size: 1.1rem;">Disease Detection</span></a>
-            </li>
-            <!-- Nav Item - Team Member -->
-            <li class="nav-item active">
-                <a class="nav-link" href="team_member.html">
-                    <span style="font-size: 1.1rem;">Team Member</span></a>
-            </li>
+           <!-- Nav Item - Home -->
+           <li class="nav-item">
+            <a id="homeLink" class="nav-link" href="index.html">
+                <span style="font-size: 1.1rem;">Home</span></a>
+        </li>
+        <!-- Nav Item - Disease Detection -->
+        <li class="nav-item">
+            <a id="diseaseLink" class="nav-link" href="disease_detection.html">
+                <span style="font-size: 1.1rem;">Disease Detection</span></a>
+        </li>
+        <!-- Nav Item - Team Member -->
+        <li class="nav-item">
+            <a id="teamLink" class="nav-link" href="team_member.html">
+                <span style="font-size: 1.1rem;">Team Member</span></a>
+        </li>
+        <!-- Nav Item - Resources -->
+        <li class="nav-item">
+            <a id="resourcesLink" class="nav-link" href="resources.html">
+                <span style="font-size: 1.1rem;">Resources</span></a>
+        </li>
+        <!-- Nav Item - Contact Us -->
+        <li class="nav-item">
+            <a id="contactLink" class="nav-link" href="contact_us.html">
+                <span style="font-size: 1.1rem;">Contact Us</span></a>
+        </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -69,7 +93,7 @@
 
         </ul>
         <!-- End of Sidebar -->
-
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -240,6 +264,8 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+    
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
