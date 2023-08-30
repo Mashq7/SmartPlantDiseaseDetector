@@ -62,7 +62,7 @@ function modules() {
   var dataTables = gulp.src([
       './node_modules/datatables.net/js/*.js',
       './node_modules/datatables.net-bs4/js/*.js',
-      './node_modules/datatables.net-bs4/css/*.css'
+      './node_modules/datatables.net-bs4/static/css/*.css'
     ])
     .pipe(gulp.dest('./vendor/datatables'));
   // Font Awesome

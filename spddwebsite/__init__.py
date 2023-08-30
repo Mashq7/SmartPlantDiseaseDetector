@@ -13,3 +13,4 @@ spdd_ma = Marshmallow()
 spdd_ma.init_app(app)
 
 from spddwebsite import routes
+
