@@ -10,20 +10,6 @@ from spddwebsite.spdd_model import classify_plant
 
 # Set your OpenAI API key
 openai.api_key = "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"
-filename = 'model.pth'
-
-
-@app.route("/")
-@app.route("/index")
-def home():
-    return render_template('index.html')
-
-
-@app.route("/disease_detection", methods=['GET','POST'])
-def project():
-    if 'image' not in request.files:
-        print("No file uploaded")
-        return render_template('disease_detection.html')
 
 
 def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0):
@@ -35,46 +21,40 @@ def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0)
     return response.choices[0].message["content"]
 
 
-def get_chatbot_response(prompt,context):
-    context.append({'role': 'user', 'content': prompt})
-    response = get_completion_from_messages(context)
-    context.append({'role': 'assistant', 'content': response})
-    return response,context
+@app.route("/")
+@app.route("/index")
+def home():
+    return render_template('index.html')
 
 
-@app.route("/gptresponse", methods=['GET','POST'])
-def gptresponse(fname):
-   
-    #class_name = "Tomato__Target_Spot"
+@app.route("/disease_detection", methods=['GET','POST'])
+def project():
+    return render_template('disease_detection.html')
+
+
+@app.route("/user_query", methods=['GET','POST'])
+def user_query():
     context = [{'role': 'system', 'content': f"""
-        act as a Plant Pathologist and tell me more about {fname}
+        act as a Plant Pathologist and tell me more about {class_name}
         ***********************************************
         output: the output should take into consideration the following
         - make the output 100 words at most
         - use easy words to understand
     """}]
-    gptresponse = get_completion_from_messages(context)
-    context.append({'role': 'assistant', 'content': gptresponse})
-    response={
-
-        "gptresponse": gptresponse,
-        "context":context
-    }
-    return  jsonify(response)
-
-
-@app.route("/userqa", methods=['GET','POST'])
-def userqa(prompt,context):
+    if request.method == "GET":
+        gptresponse = get_completion_from_messages(context)
+        context.append({'role': 'assistant', 'content': gptresponse})
+        response = {"response" : gptresponse}
+        print(response)
 
     if request.method == "POST":
-        prompt = request.json['prompt']
-        context = request.json['context']
-        gpt_response,context = get_chatbot_response(prompt,context)
-        response={
-
-            "gpt_response": gpt_response,
-            "context":context
-        }
+        if request.json['prompt']:
+            prompt = request.json['prompt']
+            context.append({'role': 'user', 'content': prompt})
+            gptresponse = get_completion_from_messages(context)
+            context.append({'role': 'assistant', 'content': gptresponse})
+            response = { "response": gptresponse }
+            print(response)
     
     return  jsonify(response)
 
@@ -93,7 +73,7 @@ def resorce():
 def response(): 
     image_file = request.files['image']
     outputs = classify_plant(image_file)
-
+    class_name = outputs['name']
     response={
         "name":  outputs['name'],
         "plant": outputs['plant'],

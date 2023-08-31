@@ -44,7 +44,7 @@ def get_prop(outputs_, predicted_):
 def get_percent_prop(probability__):
 	percent_prop = probability__.item()
 	percent_prop *= 100
-	return "{:.2f}%".format(percent_prop)
+	return "{:.2f}".format(percent_prop)
 
 def get_data():
 	# Open the JSON file for reading
