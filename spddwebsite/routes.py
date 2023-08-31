@@ -201,7 +201,7 @@ def response():
         "plant": plant,
         "healthy": healthy,
         "disease": disease,
-        "plant_probability": plant_probability*100
+        "plant_probability": round(plant_probability * 100, 3)
     }
 	return  jsonify(response)
  

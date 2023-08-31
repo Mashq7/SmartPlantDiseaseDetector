@@ -10322,6 +10322,7 @@ a:focus {
 .sidebar {
   width: 6.5rem;
   min-height: 100vh;
+  font-size: 5px !important;
 }
 
 .sidebar .nav-item {
@@ -10336,6 +10337,7 @@ a:focus {
   text-align: center;
   padding: 0.75rem 1rem;
   width: 6.5rem;
+  font-size: 5px !important;
 }
 
 .sidebar .nav-item .nav-link span {
@@ -10603,6 +10605,7 @@ a:focus {
     text-align: center;
     padding: 0.75rem 1rem;
     width: 6.5rem;
+    font-size: 5px;
   }
   .sidebar.toggled .nav-item .nav-link span {
     font-size: 0.65rem;
@@ -11280,3 +11283,7 @@ body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
 
+.sidebar-dark .nav-item .nav-link {
+    color: white !important;
+    font-weight: bolder !important;
+}

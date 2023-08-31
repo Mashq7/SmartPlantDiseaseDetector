@@ -101,7 +101,7 @@ body {
 }
 
 .ul-nav{
-    background-image: url("./static/img/background.jpg") !important;}
+    background-image: url("../img/fresh.png") !important;}
 
     
 
@@ -132,3 +132,38 @@ body {
     bottom: 4px;
     right: 7px;
 }
+
+.sidebar-dark .nav-item .nav-link {
+    color: white;
+    font-weight: bolder;
+}
+
+.desc{
+   color: black;
+}
+
+.nav-item {
+    transition: opacity .25s ease-in-out;
+  }
+  
+  .navbar-nav:hover .nav-item  {
+    opacity: 0.5;
+  }
+  
+  .navbar-nav:hover .nav-item:hover {
+    opacity: 1;
+  }
+
+
+  .nav-text{
+    font-size: 1.1rem !important;
+    font-weight: bold;
+  }
+
+.svg-nav svg{
+    fill: #fff;
+    height: 24px;
+    width: 20px;
+    background-color: #11da11;
+    padding: 2px;
+  }
