@@ -1,5 +1,6 @@
 from datetime import datetime
 from spddwebsite import spdd_db, spdd_ma
+from marshmallow_sqlalchemy import SQLAlchemyAutoSchema
 
 class User(spdd_db.Model):
 	id = spdd_db.Column(spdd_db.Integer, primary_key=True)

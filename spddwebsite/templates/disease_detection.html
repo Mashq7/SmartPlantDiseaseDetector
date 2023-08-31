@@ -12,7 +12,7 @@
     <title>Plant Leaf</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/static/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="static/vendor/fontawesome-free/static/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="font-awesome-4.7.0/static/css/font-awesome.min.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -73,7 +73,7 @@
             </li>
             <!-- Nav Item - Resources -->
             <li class="nav-item">
-                <a id="resourcesLink" class="nav-link" href="resources.html">
+                <a id="resourcesLink" class="nav-link" href="resourses">
                     <span style="font-size: 1.1rem;">Resources</span></a>
             </li>
             <!-- Nav Item - Contact Us -->
@@ -114,23 +114,22 @@
                     <!-- Upload Photo and Description Sections -->
                     <div class="row">
                         <!-- Upload Photo Section -->
+                        <div class="col-lg-3 mb-4"></div>
                         <div class="col-lg-6 mb-4">
-                            <div class="card border-left-success shadow h-80 py-2">
+                            <div class="card border-left-success shadow h-80 py-2" style="border-right:.25rem solid #1cc88a!important">
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary" style="color: #3bc683 !important;">Upload and Preview Image</h5>
+                                    <h5 class="m-0 font-weight-bold text-primary" style=" color: #3bc683 !important;">Upload and Preview Image</h5>
                                 </div>
                                 <div class="card-body">
                                     <!-- <form method="POST" enctype="multipart/form-data"> -->
                                     <!-- Your photo upload form or button -->
                                     <input type="file" name="image" id="photoInput" accept="image/*" class="mb-4" />
-                                    
-                                    <input type=submit id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary"></button>
-                                    
-                                    
+                                    <input type=submit id="uploadButton" style="color: white; background-color: #7ac375;border-color: #8ac271;" class="btn btn-primary"/>
                                     <!-- </form> -->
                                 </div>
                             </div>
-                        </div>
+                        <div class="col-lg-3 mb-4"></div>
+                    </div>
                         </div>
 
                     <!-- Display Uploaded Photo Section -->
@@ -139,35 +138,35 @@
                     <div class="row">
                         <div class="col-lg-6 mb-4 uploaded-image-section" style="display: none;">
                             
-                                <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card border-left-info border-right-info shadow h-100 py-2" style=" border-bottom:.25rem solid #36b9cc!important;">
                                     <div class="card-header py-3">
-                                        <h5 class="m-0 font-weight-bold text-primary">Uploaded Image</h5>
+                                        <h5 class="m-0 font-weight-bold text-info">Uploaded Image</h5>
                                     </div>
                                     <div class="card-body">
                                         <!-- Display uploaded photo here -->
-                                        <img id="uploadedPhoto" src="#" alt="Uploaded Photo"
+                                            <img id="uploadedPhoto" src="#" alt="Uploaded Photo"        
                                             style="max-width: 100%; height: auto;">
                                     </div>
                                 </div>
                             
                         </div>
                         <div class="col-lg-6 mb-4 description-section" style="display: none;" >
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-warning border-right-warning shadow h-100 py-2" style=" border-bottom:.25rem solid #f6c23e!important;">
                                 <div class="card-header py-3">
-                                    <h5 class="m-0 font-weight-bold text-primary">Description</h5>
+                                    <h5 class="m-0 font-weight-bold text-warning">Description</h5>
                                     
                                 </div>
                                 <div class="card-body custom-card">
-                                    <!-- Display description text from backend -->
-                                    <div><h3 style="color:rgb(0, 0, 0)"id="name_planet">  </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)"id="plant"> </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)"id="healthy"> </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)"id="name_disease"> </h3></div>
-                                    <div><h3 style="color:rgb(0, 0, 0)"id="plant_probability"> </h3></div>
+                                    <!-- Display description text from the backend -->
+                                    <div style="display:flex;"><h4 style="color:#28321d">Class Name:</h4> <h4 style="color:rgb(47 95 65);" id="name_planet"></h4></div>
+                                    <div style="display:flex;"><h4 style="color:#28321d">Plant Name:</h4><h4 style="color:rgb(47 95 65);" id="plant"></h4></div>
+                                    <div style="display:flex;"><h4 style="color:#28321d">Is Healthy:</h4><h4 style="color:rgb(47 95 65);" id="healthy"></h4></div>
+                                    <div style="display:flex;"><h4 style="color:#28321d">Disease Name:</h4><h4 style="color:rgb(47 95 65);" id="name_disease"></h4></div>
+                                    <div style="display:flex;"><h4 style="color:#28321d">Probability of the prediction:</h4><h4 style="color:rgb(47 95 65);" id="plant_probability"></h4></div>
                                 </div>
                             </div>
                         </div>
-
+                        
                         <!-- JavaScript code for image upload and display -->
                         <script>
                     // Get references to the input and image elements
@@ -227,21 +226,21 @@
             <i class="fas fa-angle-up"></i>
         </a>
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="static/vendor/jquery/jquery.min.js"></script>
+        <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
         <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+        <script src="static/js/sb-admin-2.min.js"></script>
 
         <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
+        <script src="static/vendor/chart.js/Chart.min.js"></script>
 
         <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
+        <script src="static/js/demo/chart-area-demo.js"></script>
+        <script src="static/js/demo/chart-pie-demo.js"></script>
         <script src="https://kit.fontawesome.com/7ebeca01df.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
@@ -257,11 +256,11 @@
                         contentType: false,
                         success: function(response) {
                             
-                            $('#name_planet').text( 'Class Name: ' + response.name);
-                            $('#plant').text('Plant Name:' + response.plant);
-                            $('#healthy').text('Is Healthy: ' + response.healthy);
-                            $('#name_disease').text('Disease Name: ' + response.disease);
-                            $('#plant_probability').text('Probablity of the prediction: ' + response.plant_probability + '%');
+                            $('#name_planet').text(" "+response.name);
+                            $('#plant').text(" "+response.plant);
+                            $('#healthy').text(" "+response.healthy);
+                            $('#name_disease').text(" "+response.disease);
+                            $('#plant_probability').text(" "+response.plant_probability + '%');
                         },
                         error: function(error) {
                             $('#message').text('Error uploading photo.');
