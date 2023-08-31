@@ -12,8 +12,8 @@ from transformers import ResNetConfig, ResNetForImageClassification
 from torchvision import transforms
 
 # Set your OpenAI API key
-openai.api_key = "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"
-filename = 'resnet_model.pth'
+openai.api_key = "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"
+filename = 'model.pth'
 
 classes=['Tomato__Target_Spot',
  'Tomato_Late_blight',
@@ -132,10 +132,9 @@ def create():
 @app.route("/index")
 def home():
 	return render_template('index.html')
-	
-# @app.route("/disease_detection", methods=['GET'])
-# def show_disease_detection():
-# 	return render_template('disease_detection.html')
+
+
+
 
 @app.route("/disease_detection", methods=['GET','POST'])
 def project():
@@ -145,9 +144,77 @@ def project():
 	# Load the state dict into the new model
 	model.load_state_dict(model_state_dict)
 	
+
+	
 	if 'image' not in request.files:
 		print("No file uploaded")
 		return render_template('disease_detection.html')
+
+
+
+
+
+def get_completion_from_messages(messages, model="gpt-3.5-turbo", temperature=0):
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=temperature,
+    )
+    return response.choices[0].message["content"]
+
+
+def get_chatbot_response(prompt,context):
+    context.append({'role': 'user', 'content': prompt})
+    response = get_completion_from_messages(context)
+    context.append({'role': 'assistant', 'content': response})
+    return response,context
+
+
+@app.route("/gptresponse", methods=['GET','POST'])
+def gptresponse(fname):
+
+    
+    #class_name = "Tomato__Target_Spot"
+    context = [{'role': 'system', 'content': f"""
+        act as a Plant Pathologist and tell me more about {fname}
+        ***********************************************
+        output: the output should take into consideration the following
+        - make the output 100 words at most
+        - use easy words to understand
+    """}]
+    gptresponse = get_completion_from_messages(context)
+    context.append({'role': 'assistant', 'content': gptresponse})
+    response={
+
+        "gptresponse": gptresponse,
+		"context":context
+    }
+    return  jsonify(response)
+
+
+@app.route("/userqa", methods=['GET','POST'])
+def userqa(prompt,context):
+
+    if request.method == "POST":
+        prompt = request.json['prompt']
+        context = request.json['context']
+        gpt_response,context = get_chatbot_response(prompt,context)
+        response={
+
+            "gpt_response": gpt_response,
+            "context":context
+        }
+	
+    return  jsonify(response)
+
+
+	
+
+
+ 
+	 
+
+
 
 @app.route("/team_member")
 def about():
@@ -196,13 +263,15 @@ def response():
 	print("Is Healthy:", healthy)
 	print("Disease Name:", disease)
 	print("Probablity of the prediction:",plant_probability*100,"%")
+
 	response={
         "name": name,
         "plant": plant,
         "healthy": healthy,
         "disease": disease,
-        "plant_probability": plant_probability*100
+        "plant_probability": plant_probability*100,
     }
+	
 	return  jsonify(response)
  
 	 
