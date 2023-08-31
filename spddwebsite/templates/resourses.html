@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <title>Plant Leaf</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="static/vendor/fontawesome-free/static/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/static/css/font-awesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="static/css/project.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <style>
+        .ul-nav{
+            background-image: url("./static/img/background.jpg") !important;
+        }
+  
+        .custom-card {
+            background-color: #f5f5f5;
+            padding: 17px;
+        }
+
+        .custom-card h3 {
+            margin: 10px 0;
+            font-size: 20;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="ul-nav navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="background-color: #4ccc3a;
+        background-image: linear-gradient(180deg,#8ac271 10%,#1cc88a 100%);
+        background-size: cover; !important" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M512 32c0 113.6-84.6 207.5-194.2 222c-7.1-53.4-30.6-101.6-65.3-139.3C290.8 46.3 364 0 448 0h32c17.7 0 32 14.3 32 32zM0 96C0 78.3 14.3 64 32 64H64c123.7 0 224 100.3 224 224v32V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V320C100.3 320 0 219.7 0 96z"/></svg>
+                <div class="sidebar-brand-text mx-3">Plantico</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Home -->
+            <li class="nav-item">
+                <a id="homeLink" class="nav-link" href="index">
+                    <span style="font-size: 1.1rem;">Home</span></a>
+            </li>
+            <!-- Nav Item - Disease Detection -->
+            <li class="nav-item">
+                <a id="diseaseLink" class="nav-link" href="disease_detection">
+                    <span style="font-size: 1.1rem;">Disease Detection</span></a>
+            </li>
+            <!-- Nav Item - Team Member -->
+            <li class="nav-item">
+                <a id="teamLink" class="nav-link" href="team_member">
+                    <span style="font-size: 1.1rem;">Team Member</span></a>
+            </li>
+            <!-- Nav Item - Resources -->
+            <li class="nav-item">
+                <a id="resourcesLink" class="nav-link" href="resourses">
+                    <span style="font-size: 1.1rem;">Resources</span></a>
+            </li>
+            <!-- Nav Item - Contact Us -->
+            <li class="nav-item">
+                <a id="contactLink" class="nav-link" href="contact_us.html">
+                    <span style="font-size: 1.1rem;">Contact Us</span></a>
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline button-space">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Class Distribution Visualization</h2>
+                    <div id="plotly_chart1"></div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Plant Type Distribution</h2>
+                    <div id="plotly_chart2"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Plant Virus Distribution</h2>
+                    <div id="plotly_chart3"></div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Plant Class Distribution</h2>
+                    <div id="plotly_chart4"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Random Plant Images</h2>
+                    <div class="grid-container" id="image_grid"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Sample data for demonstration purposes
+            var class_names1 = ['Class A', 'Class B', 'Class C']; 
+            var class_values1 = [1000, 1500, 800];
+        
+            var labels2 = ['Tomato', 'Potato', 'Pepper'];
+            var values2 = [500, 700, 400];
+        
+            var with_virus_count = 300;
+            var without_virus_count = 800;
+        
+            var tomato_labels = ['Healthy', 'Infected'];
+            var tomato_values = [300, 200];
+            var potato_labels = ['Healthy', 'Infected'];
+            var potato_values = [400, 300];
+            var pepper_labels = ['Healthy', 'Infected'];
+            var pepper_values = [350, 250];
+        
+            // Chart 1 - Class Distribution
+            var trace1 = {
+                x: class_names1,
+                y: class_values1,
+                type: 'bar',
+                text: class_values1,
+                marker: { color: 'blue' }
+            };
+            var data1 = [trace1];
+            var layout1 = {
+                title: 'Class Distribution',
+                xaxis: { title: 'Classes', categoryorder: 'total descending' },
+                yaxis: { title: 'Number of Images' }
+            };
+            Plotly.newPlot('plotly_chart1', data1, layout1);
+        
+            // Chart 2 - Plant Type Distribution
+            var colors2 = ['60d394', 'ffd97d', 'ee6055'];
+            var colors_rgb2 = colors2.map(color => [
+                parseInt(color.substr(0, 2), 16),
+                parseInt(color.substr(2, 2), 16),
+                parseInt(color.substr(4, 2), 16)
+            ]);
+            var data2 = [{
+                labels: labels2,
+                values: values2,
+                type: 'pie',
+                textinfo: 'percent+label',
+                hole: 0.3,
+                marker: { colors: colors_rgb2 }
+            }];
+            var layout2 = {
+                title: 'Distribution of Plant Types',
+                annotations: [{
+                    text: 'Plant Types',
+                    x: 0.5,
+                    y: 0.5,
+                    font: { size: 20 },
+                    showarrow: false
+                }]
+            };
+            Plotly.newPlot('plotly_chart2', data2, layout2);
+        
+            // Chart 3 - Plant Virus Distribution
+            var trace3 = {
+                x: ['With Virus', 'Without Virus'],
+                y: [with_virus_count, without_virus_count],
+                orientation: 'h',
+                type: 'bar',
+                text: [with_virus_count, without_virus_count],
+                textposition: 'inside',
+                marker: {
+                    color: ['darkred', 'green'],
+                    line: {
+                        color: ['darkred', 'green'],
+                        width: 1.5
+                    }
+                }
+            };
+            var data3 = [trace3];
+            var layout3 = {
+                title: 'Distribution of Plants with and without Viruses',
+                yaxis: { title: 'Plant Status' }
+            };
+            Plotly.newPlot('plotly_chart3', data3, layout3);
+        
+            // Chart 4 - Plant Class Distribution
+            var tomato_data4 = {
+                x: tomato_labels,
+                y: tomato_values,
+                type: 'bar',
+                name: 'Tomato Plants'
+            };
+            var potato_data4 = {
+                x: potato_labels,
+                y: potato_values,
+                type: 'bar',
+                name: 'Potato Plants'
+            };
+            var pepper_data4 = {
+                x: pepper_labels,
+                y: pepper_values,
+                type: 'bar',
+                name: 'Pepper Plants'
+            };
+            var data4 = [tomato_data4, potato_data4, pepper_data4];
+            var layout4 = {
+                xaxis: { title: 'Plant Class' },
+                yaxis: { title: 'Number of Plants' }
+            };
+            Plotly.newPlot('plotly_chart4', data4, layout4);
+        
+            // Random Plant Images
+            var dataPath = '/content/PlantVillage'; // Replace with your actual data path
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 4; j++) {
+                    var selectedFolder = folderNames[Math.floor(Math.random() * folderNames.length)];
+                    var folderPath = dataPath + '/' + selectedFolder;
+                    var imageFiles = /* Array of image filenames for the selected folder */;
+                    var selectedImage = imageFiles[Math.floor(Math.random() * imageFiles.length)];
+        
+                    var imgElement = document.createElement('img');
+                    imgElement.src = folderPath + '/' + selectedImage;
+                    imgElement.alt = selectedFolder;
+                    imgElement.className = 'grid-image';
+        
+                    var gridItem = document.createElement('div');
+                    gridItem.className = 'grid-item';
+                    gridItem.appendChild(imgElement);
+        
+                    imageGrid.appendChild(gridItem);
+                }
+            }
+        </script>
+        
+        
+        
+    
+        <!-- Include Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

@@ -153,6 +153,10 @@ def project():
 def about():
 	return render_template('team_member.html')
 
+@app.route("/resourses")
+def resorce():
+	return render_template('resourses.html')
+
 
 @app.route("/datarespons", methods=['GET','POST'])
 def response():
@@ -191,7 +195,6 @@ def response():
 	print("Plant Name:", plant)
 	print("Is Healthy:", healthy)
 	print("Disease Name:", disease)
-	print("Probablity of the prediction:",plant_probability*100,"%")
 	print("Probablity of the prediction:",plant_probability*100,"%")
 	response={
         "name": name,
