@@ -63,5 +63,6 @@ def classify_plant(image):
         "plant": data[str(int(predicted))]['plant'],
         "healthy": data[str(int(predicted))]['healthy'],
         "disease": data[str(int(predicted))]['disease'],
-        "plant_probability": get_percent_prop(probability_)	}
+        "plant_probability": get_percent_prop(probability_),	
+		}
 	return response
