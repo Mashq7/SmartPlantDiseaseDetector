@@ -10,10 +10,14 @@ This repository represents the collaborative achievement of our team during the 
 4. Shaima'a Khashan [Linkedin](https://www.linkedin.com/in/shaimaa-khashan-70b782139/)
 5. Duha Jarrar [Linkedin](https://www.linkedin.com/in/duha-jarrar/)
 6. Anas Ouda [Linkedin](https://www.linkedin.com/in/anas-ouda-b170bb1a3/)
+
+
+لإ
    
+You can download the pth file from here [drive](https://drive.google.com/file/d/1pYKu1CkVwPuowm6iptSpAaF_ZSExMCw8/view?usp=drive_link)
 
 
-
+فف
 
 
 
