@@ -5,7 +5,7 @@ This repository represents the collaborative achievement of our team during the 
 
 # Team members
 1. Rabee Qasem   [Linkedin](https://www.linkedin.com/in/rabeeqasem/)
-2. Husam Hammad
+2. Husam Hammad [Linkedin](https://www.linkedin.com/in/husam-hammad-38709b214/)
 3. Mohammad Qendah
 4. Shaima'a Khashan
 5. Duha Jarrar
