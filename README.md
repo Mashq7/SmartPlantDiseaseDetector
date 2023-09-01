@@ -1,1 +1,1 @@
-# SmartPlantDiseaseDetector_Website
+# Smart Plant Disease Detector Website
