@@ -4,7 +4,7 @@ This repository represents the collaborative achievement of our team during the 
 
 
 # Team members
-1. Rabee Qasem
+1. Rabee Qasem   [Linkedin](https://www.linkedin.com/in/rabeeqasem/)
 2. Husam Hammad
 3. Mohammad Qendah
 4. Shaima'a Khashan
