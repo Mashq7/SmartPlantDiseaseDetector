@@ -6,10 +6,10 @@ This repository represents the collaborative achievement of our team during the 
 # Team members
 1. Rabee Qasem   [Linkedin](https://www.linkedin.com/in/rabeeqasem/)
 2. Husam Hammad [Linkedin](https://www.linkedin.com/in/husam-hammad-38709b214/)
-3. Mohammad Qendah
-4. Shaima'a Khashan
-5. Duha Jarrar
-6. Anas Ouda
+3. Mohammad Qendah [LinkedIn](https://www.linkedin.com/in/mohamad-qendah/)
+4. Shaima'a Khashan [Linkedin](https://www.linkedin.com/in/shaimaa-khashan-70b782139/)
+5. Duha Jarrar [Linkedin](https://www.linkedin.com/in/duha-jarrar/)
+6. Anas Ouda [Linkedin](https://www.linkedin.com/in/anas-ouda-b170bb1a3/)
    
 
 
